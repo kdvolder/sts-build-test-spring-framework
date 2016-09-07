@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sts-build-test-spring-framework
+Bundle-SymbolicName: sts-build-test-spring-framework
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.junit,
+ org.springsource.ide.eclipse.commons.tests.util,
+ org.eclipse.equinox.registry,
+ org.apache.commons.io,
+ org.springsource.ide.eclipse.commons.frameworks.test.util,
+ org.springsource.ide.eclipse.commons.core,
+ org.eclipse.core.resources,
+ org.springframework.ide.eclipse.boot.wizard,
+ org.eclipse.jface
