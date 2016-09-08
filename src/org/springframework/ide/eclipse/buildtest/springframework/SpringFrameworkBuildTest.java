@@ -35,10 +35,17 @@ public class SpringFrameworkBuildTest {
 	
 	@Test
 	public void buildItWithEclipse() throws Exception {
-		String owner = "kdvolder";
+//		String owner = "kdvolder";
+//		String branch = "master";
+//		String projectName = "simple-gradle-multi";
+//		ExternalCommand prepare = new ExternalCommand("./gradlew", "cleanEclipse", "eclipse");
+
+		String owner = "spring-projects";
 		String branch = "master";
-		String projectName = "simple-gradle-multi";
-		
+		String projectName = "spring-framework";
+		ExternalCommand prepare = new ExternalCommand("./gradlew", 
+				"--no-daemon",  "cleanEclipse", ":spring-oxm:compileTestJava", "eclipse", "-x", ":eclipse");
+
 		File workDir = createTempDir();
 		StsTestUtil.setAutoBuilding(false);
 		
@@ -51,8 +58,6 @@ public class SpringFrameworkBuildTest {
 		
 		File rootProjectDir = new File(workDir, projectName+"-"+branch);
 		
-		ExternalCommand prepare = new ExternalCommand("./gradlew", "cleanEclipse", "eclipse");
-//				"--no-daemon",  "cleanEclipse", ":spring-oxm:compileTestJava", "eclipse", "-x", ":eclipse");
 		prepare.exec(rootProjectDir);
 
 		List<File> importableProjects = findProjects(rootProjectDir);
