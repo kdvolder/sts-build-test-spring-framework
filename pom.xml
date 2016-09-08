@@ -34,6 +34,11 @@
 			<layout>p2</layout>
 			<url>https://dist.springsource.com/snapshot/TOOLS/eclipse-integration-commons/nightly</url>
 		</repository>
+		<repository>
+			<id>greclipse</id>
+			<layout>p2</layout>
+			<url>http://dist.springsource.org/snapshot/GRECLIPSE/e4.6/</url>
+		</repository>
 	</repositories>
 
 	<build>
@@ -62,6 +67,11 @@
 				<configuration>
 					<dependency-resolution>
 						<extraRequirements>
+							<requirement>
+								<type>eclipse-feature</type>
+								<id>org.codehaus.groovy.eclipse.feature</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
 							<requirement>
 								<type>eclipse-feature</type>
 								<id>org.springframework.ide.eclipse.feature</id>
