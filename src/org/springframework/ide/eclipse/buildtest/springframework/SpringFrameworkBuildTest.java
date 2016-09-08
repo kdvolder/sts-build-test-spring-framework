@@ -63,12 +63,16 @@ public class SpringFrameworkBuildTest {
 		List<File> importableProjects = findProjects(rootProjectDir);
 		List<IProject> projects = new ArrayList<>();
 		for (File projectDir : importableProjects) {
+			System.out.println("Importing '"+projectDir.getName()+"' ...");
 			projects.add(importExistingProject(projectDir));
+			System.out.println("Importing '"+projectDir.getName()+"' DONE");
 		}
 
-		ResourcesPlugin.getWorkspace().build(IncrementalProjectBuilder.FULL_BUILD, new NullProgressMonitor());
+		ResourcesPlugin.getWorkspace().build(IncrementalProjectBuilder.FULL_BUILD, new SysOutProgressMonitor());
+		System.out.println("WORKSPACE BUILD complete");
 		for (IProject p : projects) {
 			assertNoErrors(p);
+			System.out.println("Project '"+p.getName()+"' has no errors!");
 		}
 	}
 
