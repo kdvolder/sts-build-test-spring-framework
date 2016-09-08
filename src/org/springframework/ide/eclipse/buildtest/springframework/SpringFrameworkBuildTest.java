@@ -105,9 +105,9 @@ public class SpringFrameworkBuildTest {
 			File descriptor = new File(dir, ".project");
 			if (descriptor.exists()) {
 				found.add(dir);
-				for (File file : dir.listFiles()) {
-					findProject(file, found);
-				}
+			}
+			for (File file : dir.listFiles()) {
+				findProject(file, found);
 			}
 		}
 		return found;
