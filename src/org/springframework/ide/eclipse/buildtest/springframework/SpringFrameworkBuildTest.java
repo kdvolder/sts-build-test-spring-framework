@@ -61,6 +61,7 @@ public class SpringFrameworkBuildTest {
 		prepare.exec(rootProjectDir);
 
 		List<File> importableProjects = findProjects(rootProjectDir);
+		System.out.println("Found "+importableProjects.size()+" projects to import");
 		List<IProject> projects = new ArrayList<>();
 		for (File projectDir : importableProjects) {
 			System.out.println("Importing '"+projectDir.getName()+"' ...");
